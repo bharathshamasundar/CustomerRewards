@@ -1,23 +1,20 @@
 package com.customerRewards.transactions;
 
+import lombok.Builder;
+import lombok.Data;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
 
 @Entity
 @Table
+@Data
+@Builder
 public class Transactions {
 
     @Id
-    @SequenceGenerator(
-            name = "transaction_sequence",
-            sequenceName = "transaction_sequence",
-            allocationSize = 1
-    )
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "transaction_sequence"
-    )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long transactionId;
 
     private String customerEmail;

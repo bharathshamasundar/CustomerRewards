@@ -1,8 +1,10 @@
 package com.customerRewards.customer;
 
+import com.customerRewards.rewards.RewardsMonthly;
 import com.customerRewards.transactions.TransactionRepository;
 import com.customerRewards.transactions.Transactions;
 import com.customerRewards.rewards.Rewards;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,8 +14,6 @@ import java.util.List;
 
 @Service
 public class CustomerService {
-
-    @Autowired
     public CustomerService(CustomerRepository customerRepository, TransactionRepository transactionRepository) {
         this.customerRepository = customerRepository;
         this.transactionRepository = transactionRepository;
@@ -60,15 +60,14 @@ public class CustomerService {
 
     }
 
-    public Rewards getIndividualCustomerRewards(Long customerID){
+    public RewardsMonthly getIndividualCustomerRewards(Long customerID){
         Customer customer = customerRepository.findCustomerById(customerID);
         List<Transactions> transactionsList = transactionRepository.findTransactionsByCustomerEmail(customer.getEmail());
-        Long totalRewards = 0L;
         Long purchaseAmount,monthlyRewards;
         String month;
-        Rewards reward = new Rewards();
-        reward.setEmail(customer.getEmail());
-        reward.setName(customer.getName());
+        RewardsMonthly rewardsMonthly = new RewardsMonthly();
+        rewardsMonthly.setEmail(customer.getEmail());
+        rewardsMonthly.setName(customer.getName());
         HashMap<String,Long> rewardMap = new HashMap<>();
 
         for(Transactions transactions: transactionsList){
@@ -81,11 +80,9 @@ public class CustomerService {
                 //do nothing as you accumulate no points
             } else if (purchaseAmount > 50L && purchaseAmount <=100L) {
                 monthlyRewards = purchaseAmount - 50L;
-                totalRewards+=monthlyRewards;
             }else{
                 monthlyRewards = 50L;
                 monthlyRewards+=(purchaseAmount - 100) * 2;
-                totalRewards+=monthlyRewards;
             }
 
             if(rewardMap.containsKey(month)){
@@ -94,9 +91,8 @@ public class CustomerService {
                 rewardMap.put(month,monthlyRewards);
             }
         }
-        reward.setTotalRewardPoints(totalRewards);
-        reward.setRewardsMap(rewardMap);
-        return reward;
+        rewardsMonthly.setRewardsMap(rewardMap);
+        return rewardsMonthly;
     }
 
 }

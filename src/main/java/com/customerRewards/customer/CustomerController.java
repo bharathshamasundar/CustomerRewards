@@ -1,6 +1,7 @@
 package com.customerRewards.customer;
 
 import com.customerRewards.rewards.Rewards;
+import com.customerRewards.rewards.RewardsMonthly;
 import com.customerRewards.transactions.TransactionService;
 import com.customerRewards.transactions.Transactions;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +32,7 @@ public class CustomerController {
     }
 
     @GetMapping(path = "/Rewards/{customerID}")
-    public Rewards getIndividualCustomerRewards(@PathVariable Long customerID){
+    public RewardsMonthly getIndividualCustomerRewards(@PathVariable Long customerID){
         return customerService.getIndividualCustomerRewards(customerID);
     }
 
