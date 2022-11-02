@@ -4,7 +4,8 @@ import com.customerRewards.rewards.Rewards;
 import com.customerRewards.rewards.RewardsMonthly;
 import com.customerRewards.transactions.TransactionService;
 import com.customerRewards.transactions.Transactions;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +19,6 @@ public class CustomerController {
     private final TransactionService transactionService;
     private final CustomerService customerService;
 
-    @Autowired
     public CustomerController(CustomerService customerService, TransactionService transactionService) {
         this.customerService = customerService;
         this.transactionService = transactionService;
@@ -32,8 +32,8 @@ public class CustomerController {
     }
 
     @GetMapping(path = "/Rewards/{customerID}")
-    public RewardsMonthly getIndividualCustomerRewards(@PathVariable Long customerID){
-        return customerService.getIndividualCustomerRewards(customerID);
+    public ResponseEntity<RewardsMonthly> getIndividualCustomerRewards(@PathVariable Long customerID){
+        return new ResponseEntity<>(customerService.getIndividualCustomerRewards(customerID),HttpStatus.OK);
     }
 
     @GetMapping(path = "/Transactions")

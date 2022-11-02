@@ -26,26 +26,62 @@ public class CustomerConfig {
             Customer ricardo = new Customer(
                     "Ricardo",
                     30,
-                    LocalDate.of(1993, Month.JULY,10),
+                    LocalDate.of(1992, Month.JULY,10),
                     "ricardomorales@gmail.com"
             );
 
-            Transactions bharathTransaction = new Transactions(
+            Customer nancy = new Customer(
+                    "Nancy",
+                    20,
+                    LocalDate.of(2002,Month.JULY,20),
+                    "nancy123@gmail.com"
+            );
+
+            Transactions bharathFirstTransaction = new Transactions(
                     "bharathbs294@gmail.com",
-                    "bharath",
+                    "Bharath",
                     1000L,
                     LocalDate.of(2022,Month.MAY,30)
             );
 
-            Transactions ricardoTransaction = new Transactions(
-                    "ricardomorales@gmail.com",
-                    "bharath",
-                    1000L,
+            Transactions bharathSecondTransaction = new Transactions(
+                    "bharathbs294@gmail.com",
+                    "Bharath",
+                    100L,
                     LocalDate.of(2022,Month.JUNE,30)
             );
 
-            customerRepository.saveAll(List.of(bharath,ricardo));
-            transactionRepository.saveAll(List.of(bharathTransaction,ricardoTransaction));
+            Transactions ricardoFirstTransaction = new Transactions(
+                    "ricardomorales@gmail.com",
+                    "Ricardo",
+                    960L,
+                    LocalDate.of(2022,Month.JUNE,29)
+            );
+
+            Transactions ricardoSecondTransaction = new Transactions(
+                    "ricardomorales@gmail.com",
+                    "Ricardo",
+                    100L,
+                    LocalDate.of(2022,Month.JUNE,29)
+            );
+
+            Transactions ricardoThirdTransaction = new Transactions(
+                    "ricardomorales@gmail.com",
+                    "Ricardo",
+                    118L,
+                    LocalDate.of(2022,Month.JULY,28)
+            );
+
+            Transactions nancyFirstTransaction = new Transactions(
+                    "nancy123@gmail.com",
+                    "Nancy",
+                    10000L,
+                    LocalDate.of(2022,Month.JULY,10)
+            );
+
+            customerRepository.saveAll(List.of(bharath,ricardo,nancy));
+            transactionRepository.saveAll(List.of(bharathFirstTransaction,bharathSecondTransaction,ricardoFirstTransaction,
+                    ricardoSecondTransaction,ricardoThirdTransaction,nancyFirstTransaction));
 
         };
     }

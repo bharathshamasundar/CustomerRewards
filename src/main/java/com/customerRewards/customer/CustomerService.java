@@ -1,11 +1,9 @@
 package com.customerRewards.customer;
 
+import com.customerRewards.rewards.Rewards;
 import com.customerRewards.rewards.RewardsMonthly;
 import com.customerRewards.transactions.TransactionRepository;
 import com.customerRewards.transactions.Transactions;
-import com.customerRewards.rewards.Rewards;
-import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -14,6 +12,7 @@ import java.util.List;
 
 @Service
 public class CustomerService {
+
     public CustomerService(CustomerRepository customerRepository, TransactionRepository transactionRepository) {
         this.customerRepository = customerRepository;
         this.transactionRepository = transactionRepository;
@@ -62,6 +61,9 @@ public class CustomerService {
 
     public RewardsMonthly getIndividualCustomerRewards(Long customerID){
         Customer customer = customerRepository.findCustomerById(customerID);
+        if(customer == null){
+            return null;
+        }
         List<Transactions> transactionsList = transactionRepository.findTransactionsByCustomerEmail(customer.getEmail());
         Long purchaseAmount,monthlyRewards;
         String month;

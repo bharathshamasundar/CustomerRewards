@@ -1,5 +1,6 @@
 package com.customerRewards.transactions;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Builder;
 import lombok.Data;
 
@@ -21,7 +22,8 @@ public class Transactions {
     private String customerName;
     private Long totalPurchaseAmount;
 
-    private LocalDate purchaseDate;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    public LocalDate purchaseDate;
 
 
     public Transactions() {

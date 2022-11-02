@@ -1,5 +1,6 @@
 package com.customerRewards.customer;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Builder;
 import lombok.Data;
 
@@ -16,6 +17,7 @@ public class Customer {
     private Long id;
     private String name;
     private Integer age;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate dob;
     private String email;
 

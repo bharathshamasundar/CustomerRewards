@@ -19,7 +19,7 @@ public class TransactionService {
 
 
     public boolean isTransactionHavingThreeMonthsHistory(){
-        List<Transactions> transactionsList = transactionRepository.findAll();
+        List<Transactions> transactionsList = (List<Transactions>) transactionRepository.findAll();
         HashSet<Integer> monthData = new HashSet<>();
         HashSet<Integer> yearData = new HashSet<>();
         for (Transactions transactions:transactionsList) {
@@ -36,7 +36,7 @@ public class TransactionService {
 
 
     public List<Transactions> getAllTransaction(){
-        return transactionRepository.findAll();
+        return (List<Transactions>) transactionRepository.findAll();
     }
 
 }

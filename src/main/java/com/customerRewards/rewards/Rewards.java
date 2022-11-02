@@ -1,8 +1,14 @@
 package com.customerRewards.rewards;
 
-import java.util.HashMap;
-
 public class Rewards {
+
+    public String getName() {
+        return name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
 
     private String name;
 
