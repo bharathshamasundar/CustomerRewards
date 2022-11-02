@@ -6,10 +6,8 @@ import com.customerRewards.transactions.TransactionService;
 import com.customerRewards.transactions.Transactions;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.json.simple.JSONObject;
 
 import java.util.List;
 
@@ -39,5 +37,21 @@ public class CustomerController {
     @GetMapping(path = "/Transactions")
     public List<Transactions> getTransactions(){
         return transactionService.getAllTransaction();
+    }
+
+
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<String> handleIllegalArgException(IllegalArgumentException exception) {
+        JSONObject response = new JSONObject();
+        //Could have an Error Response Class in the future that could handle these messages
+        response.put("ErrorMessage","Customer Repository is empty" );
+        return new ResponseEntity<>(response.toString(), HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(RuntimeException.class)
+    public ResponseEntity<String> handleRunTimeException(RuntimeException exception) {
+        JSONObject response = new JSONObject();
+        response.put("ErrorMessage",exception.getMessage());
+        return new ResponseEntity<>(response.toString(), HttpStatus.NOT_FOUND);
     }
 }

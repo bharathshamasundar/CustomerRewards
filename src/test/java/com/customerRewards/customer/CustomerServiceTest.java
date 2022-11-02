@@ -3,16 +3,17 @@ package com.customerRewards.customer;
 import com.customerRewards.transactions.TransactionRepository;
 import com.customerRewards.transactions.TransactionUtil;
 import com.customerRewards.transactions.Transactions;
+import org.junit.Rule;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.rules.ExpectedException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(SpringExtension.class)
 @DataJpaTest
@@ -27,6 +28,9 @@ class CustomerServiceTest {
 
     private Transactions transactionExample;
     private Customer customerExample;
+
+    @Rule
+    public final ExpectedException exception = ExpectedException.none();
 
     @BeforeEach
     void setUp() {
@@ -55,7 +59,7 @@ class CustomerServiceTest {
 
     @Test
     void verifyNoCustomersPresentForTotalRewards() {
-        assertTrue(underTest.getTotalCustomerRewards().size() == 0);
+        assertThrows(IllegalArgumentException.class,()-> underTest.getTotalCustomerRewards());
     }
 
     @Test
@@ -98,13 +102,14 @@ class CustomerServiceTest {
 
     @Test
     void verifyNoCustomerForMonthlyRewards() {
-        assertTrue(underTest.getIndividualCustomerRewards(customerExample.getId()) ==  null);
+        assertThrows(IllegalArgumentException.class,()-> underTest.getIndividualCustomerRewards(customerExample.getId()));
+
     }
 
     @Test
     void verifyNoTransactionForMonthlyRewards() {
         customerRepository.save(customerExample);
-        assertTrue(underTest.getIndividualCustomerRewards(customerExample.getId()).getRewardsMap().size() == 0);
+        assertThrows(RuntimeException.class,()-> underTest.getIndividualCustomerRewards(customerExample.getId()));
     }
 
 
