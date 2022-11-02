@@ -1,7 +1,7 @@
 # CustomerRewards
 
 
-This is a Spring Boot application which calculates the monthly rewards as well as the total rewards for the a given dataset of customers and transactions.
+This is a Spring Boot application which calculates the monthly rewards as well as the total rewards for a given dataset of customers and transactions.
 
 
 I have created only a small dataset using the CommandLineRunner, ideally you would want the dataset to persist somewhere and then you would read it. But to make things simpler I have chosen this route.
