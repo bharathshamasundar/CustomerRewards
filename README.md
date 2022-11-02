@@ -17,6 +17,7 @@ To Run the application
 
 1) Run the file CustomerRewardsApplication.java(src/main/java/com/customerRewards/CustomerRewardsApplication.java)
 2) Go to a Browser of you choice and type in the following links for the following API's:
+  
   a)For Total Rewards for each of the customer: http://localhost:8080/api/v1/customerRewards/Rewards
   
   b)For Monthly Rewards for individual customer: http://localhost:8080/api/v1/customerRewards/Rewards/{customerId}
