@@ -14,7 +14,7 @@ Set Up Needed to run the Application
 
 
 
-To Run the application go to CustomerRewards/CustomerFrontEnd
+To Run the application go to CustomerRewards/CustomerFrontEnd from VS Code and open the terminal on this path
 
 # Run npm start in order to Start the React Application.
 
