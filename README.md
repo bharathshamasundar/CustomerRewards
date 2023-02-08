@@ -26,7 +26,7 @@ Select the option from the dropdown
 
 1) Customer Total Rewards -> For total customer reward points for each of the Customer
 
-2)Transaction List -> For all the transaction list present in the dataset
+2) Transaction List -> For all the transaction list present in the dataset
 
 3) Monthly Customer Rewards -> For a month on month based customer reward points on the basis of each customer
   
