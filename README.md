@@ -14,11 +14,11 @@ Set Up Needed to run the Application
 
 
 
-To Run the application go to the CustomerRewards/CustomerFrontEnd
+To Run the application go to CustomerRewards/CustomerFrontEnd
 
 # Run npm start in order to Start the React Application.
 
-Make sure to run the application with the SpringBoot code as well.
+Make sure to run the application with the SpringBoot code as well as your backend code resides here.
 
 Select the option from the dropdown
 
