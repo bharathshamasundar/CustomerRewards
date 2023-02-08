@@ -1,0 +1,78 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.container {
+  background-image: url('./shopping-background.jpg');
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropdown-menu {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 30px;
+  border-radius: 30px;
+  font-size: 36px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.option-style {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.ant-table {
+  font-size: 40px;
+}
+
+.ant-table-cell {
+  font-size: 40px;
+}
+
+.message {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 60px;
+  font-weight: bold;
+  color: rebeccapurple;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
