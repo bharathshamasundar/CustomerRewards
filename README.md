@@ -10,7 +10,7 @@ Set Up Needed to run the Application
 
 1) IDE which can run Spring Boot applications(Make sure to have the necessary plugins needed)
 2) I have used POSTGRES as my database here, so make sure that POSTGRES has been set with the database name as given in src/main/resources/application.properties.
-3) Make sure to have VSCode installed inorder to Run React.
+3) Make sure to have VSCode installed inorder to Run React and make the necessary installations needed for React and its components(I have used Ant Design component here for the React Front End)
 
 
 
@@ -20,7 +20,7 @@ Start Visual Studio Code with all the node Modules
 
 Run npm start in order to Start the React Application.
 
-Make sure to run the application with the SpringBoot code as well
+Make sure to run the application with the SpringBoot code as well.
 
 Select the option from the dropdown
 
