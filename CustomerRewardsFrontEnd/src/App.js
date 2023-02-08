@@ -28,7 +28,7 @@ function App() {
       {selectedOption === 'Transactions' && <Transactions />}
       {selectedOption === 'MonthlyCustomerReward' && (
         <div>
-          <button onClick={handlePrompt}>Enter value</button>
+          <button onClick={handlePrompt}>Enter the customer ID for which you want the monthly reward points</button>
           {value && <MonthlyRewards parameter={value} />}
         </div>
       )}
