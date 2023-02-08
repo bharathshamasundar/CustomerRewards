@@ -14,9 +14,7 @@ Set Up Needed to run the Application
 
 
 
-To Run the application
-
-Start Visual Studio Code with all the node Modules
+To Run the application go to the CustomerRewards/CustomerFrontEnd
 
 # Run npm start in order to Start the React Application.
 
