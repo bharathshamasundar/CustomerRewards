@@ -18,6 +18,8 @@ To install Ant Design Component
 
 
 
+
+
 To Run the application go to CustomerRewards/CustomerFrontEnd from VS Code and open the terminal on this path
 
 ### `npm start`
