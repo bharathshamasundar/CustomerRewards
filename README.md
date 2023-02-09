@@ -16,7 +16,10 @@ Set Up Needed to run the Application
 
 To Run the application go to CustomerRewards/CustomerFrontEnd from VS Code and open the terminal on this path
 
-# Run npm start in order to Start the React Application.
+### `npm start`
+
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 Make sure to run the application with the SpringBoot code as well as your backend code resides here.
 
