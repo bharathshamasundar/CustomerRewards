@@ -12,6 +12,10 @@ Set Up Needed to run the Application
 2) I have used POSTGRES as my database here, so make sure that POSTGRES has been set with the database name as given in src/main/resources/application.properties.
 3) Make sure to have VSCode installed inorder to Run React and make the necessary installations needed for React and its components(I have used Ant Design component here for the React Front End)
 
+### `npm i antd`
+
+To install Ant Design Component
+
 
 
 To Run the application go to CustomerRewards/CustomerFrontEnd from VS Code and open the terminal on this path
